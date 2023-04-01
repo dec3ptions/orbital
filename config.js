@@ -1,0 +1,3 @@
+const config = {
+    amabatublow: true
+};
