@@ -1,3 +1,9 @@
+// Config
+fetch('https://raw.githubusercontent.com/dec3ptions/orbital/hacks/config.json')
+  .then(response => response.json())
+  .then(data => config2 = data)
+  .catch(error => console.error(error));
+
 // Variables
 const dec3ptions_blueprint = [
   
