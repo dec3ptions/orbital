@@ -3,5 +3,5 @@ const config = {
     amabatukam: true,
     amabatubus: false
 };
-
-export { config };
+  
+export default config;  
