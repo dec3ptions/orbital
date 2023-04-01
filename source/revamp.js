@@ -61,10 +61,10 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
     '<div class="button" id="dec3ptions_5_infinite" >Infinite</div>' +
     '<div class="button" id="dec3ptions_5_custom" >Custom</div>' +
 
-    '<h1>LEVELS<h1>' +
+  '<h1>LEVELS<h1>' +
     '<div class="button" id="dec3ptions_6_play" >Play</div>' +
 
-    '<h1>OTHER / INFO<h1>' +
+  '<h1>OTHER / INFO<h1>' +
     '<div class="button" id="dec3ptions_7_weaponlist" >Weapon list</div>' +
 
 '</div>');
