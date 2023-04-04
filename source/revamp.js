@@ -53,7 +53,7 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML(`beforeEnd`,
   `<h1 style="color:#7600ff; font-size: 34.5px; font-weight: bold;">DEC3PTIONS\n<h1>` +
 
   `<h1 style="${hdrStyle}">\n\nGET DAGGERS<h1>` +
-  `<div class="button" id="dec3ptions_1_specific" style="${btnStyle}">Specific </div>` +
+  `<div class="button" id="dec3ptions_1_specific" style="${btnStyle}">Specific <div class="button" id="dec3ptions_1_specific2" style="${btnStyle0}">       </div></div>` +
   `<div class="button" id="dec3ptions_1_rapidSpecific" style="${btnStyle}">{RAPID} Specific</div>` +
   `<div class="button" id="dec3ptions_1_levelbased" style="${btnStyle}">Level</div>` +
   `<div class="button" id="dec3ptions_1_rapidLevelbased" style="${btnStyle}">{RAPID} Level</div>` +
