@@ -1,15 +1,15 @@
-/* Ignore: */ var btnStyle = "flex: 1 1 0%; display: block; color: #7600FF; background-color: #000000; border: 2px solid #7600FF;"; var hdrStyle = "color:#ffffff; font-size: 19px; font-weight: bold;"; var btnStyle0 = "flex: 1 1 0%; display: block; color: #ff0000; background-color: #000000; border: 2px solid #ff0000;"; var btnStyle1 = "flex: 1 1 0%; display: block; color: #00ff00; background-color: #000000; border: 2px solid #00ff00;";
+/* Ignore: */ var btnStyle = "flex: 1 1 0%; display: block; color: #7600FF; background-color: #000000; border: 2px solid #7600FF;"; var hdrStyle = "color:#ffffff; font-size: 19px; font-weight: bold;"; var btnStyle0 = "flex: 1 1 0%; display: block; color: #ff0000; background-color: #000000; border: 2px solid red;"; var btnStyle1 = "flex: 1 1 0%; display: block; color: #00ff00; background-color: #000000; border: 2px solid green;";
 /* Main_menu_btn: */ document.getElementById('screen_main_menu').insertAdjacentHTML('beforeend', `<div class="main_menu_row2"><div id="dec3ptions_btn" class="button" style="${btnStyle}">DEC3PTIONS</div></div>`); document.body.insertAdjacentHTML('beforeend', '<div class="screen" id="screen_dec3ptions" style="visibility: visible; display: none; background: #000000;"></div>')
 /* State: */ state_blueprint.push({ id: 'dec3ptions', on_focus: function() { $("#screen_dec3ptions").show(); $("#dec3ptions_btn").hide() }, on_blur: function() { $("#screen_dec3ptions").hide(); $("#dec3ptions_btn").show() } }); $("#dec3ptions_btn").click(function() { state.set("dec3ptions") });
 /* Keybind: */ document.addEventListener('keydown', function(event) { if (event.key === 'q' || event.key === 'Q') { const mainMenuRow2 = document.querySelector('.main_menu_row2'); if (mainMenuRow2) { mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none'; } } });
 /* Screen: */ document.getElementById("screen_credits").insertAdjacentHTML(`beforeEnd`, `<h1> DEC3PTIONS MOD </h1>` + `<p> Dec3ptions#0000 </p>`);
 
-const dec3ptions_blueprint = [
+let dec3ptions_blueprint = [
   
   { "id": String(atob("ZGVjM3B0aW9uc18xX3NwZWNpZmlj")) /*dec3ptions_1_specific*/, "function": async function() { var weapon_id_choice = String(prompt("Which weapon, in the weapon list, do you want to get?")); var weapon_amt_coice = Number(prompt("How many do you want to get?")); var n = await sync.async_get("w_"+weapon_id_choice) || 0; sync.async_set("w_"+weapon_id_choice, n+weapon_amt_coice); dagger_selection.init() } },
-  { "id": String(atob("ZGVjM3B0aW9uc18xX3JhcGlkU3BlY2lmaWM=")) /*dec3ptions_1_rapidSpecific*/, "function": async function() { var rapid_weapon_id_choice = String(prompt("Which weapon, in the weapon list, do you want to get?")); setInterval(async () => { var n = await sync.async_get("w_"+rapid_weapon_id_choice) || 0; await sync.async_set("w_"+rapid_weapon_id_choice, n+1); await dagger_selection.init(); }, 10) } },
+  { "id": String(atob("ZGVjM3B0aW9uc18xX3JhcGlkU3BlY2lmaWM=")) /*dec3ptions_1_rapidSpecific*/, "function": function() { var rapid_weapon_id_choice = String(prompt("Which weapon, in the weapon list, do you want to get?")); return rapid_weapon_id_choice }, "repeat" : async (input) => { var n = await sync.async_get("w_"+input) || 0; await sync.async_set("w_"+input, n+3); -dagger_selection.init(); }, "timeout": 30 },
   { "id": String(atob("ZGVjM3B0aW9uc18xX2xldmVsYmFzZWQ=")) /*dec3ptions_1_levelbased*/, "function": function() { dagger_selection.reward_level_clear();console.clear();console.log('Opened!'); } },
-  { "id": String(atob("ZGVjM3B0aW9uc18xX3JhcGlkTGV2ZWxiYXNlZA==")) /*dec3ptions_1_rapidLevelbased*/, "function": function() { setInterval(() => {dagger_selection.reward_level_clear();console.clear();console.log('Opened!');}, 20); } },
+  { "id": String(atob("ZGVjM3B0aW9uc18xX3JhcGlkTGV2ZWxiYXNlZA==")) /*dec3ptions_1_rapidLevelbased*/, "function": function() {var input = String(prompt("Goofy?")); return input}, "repeat": function(repeating) {console.log("1: ",repeating); /*dagger_selection.reward_level_clear();console.clear();console.log('Opened!');*/}, "timeout": 2000 },
   { "id": String(atob("ZGVjM3B0aW9uc18xXzk5OXg=")) /*dec3ptions_1_999x*/, "function": function() { var daggers = [{"id": "starter_sword"}, {"id": "spear1"}, {"id": "kitchen_knife"}, {"id": "spear2"}, {"id": "bullet"}, {"id": "banana"}, {"id": "short_dagger"}, {"id": "katana"}, {"id": "cool1"}, {"id": "pixel1"}, {"id": "diaknife"}, {"id": "carrotknife"}, {"id": "axe"}, {"id": "battle_axe"}, {"id": "claw"}, {"id": "eye_piercer"}, {"id": "long_axe"}, {"id": "mace"}, {"id": "rocket"}, {"id": "staff"}, {"id": "wolverine"}, {"id": "longsword"}, {"id": "broom"}, {"id": "speedsword"}, {"id": "shield"}, {"id": "pendulum"}, {"id": "slow_pendulum"}, {"id": "long_pendulum"}, {"id": "butterfly"}, {"id": "lol_fist"}, {"id": "superfast"}, {"id": "tiny_fast_dagger"}, {"id": "wearable"}];for (let i = 0; i < daggers.length; i++) {sync.async_set("w_"+daggers[i].id, 999);};dagger_selection.init(); } },
 
   { "id": String(atob("ZGVjM3B0aW9uc18yX2RhZ2dlcg==")) /*dec3ptions_2_dagger*/, "function": function() { var option_equipDaggers_equipDagger = "";let choice_EQUIP_DAGGERS_DAGGER_weapon_id = prompt("Which weapon (in weaponList) to equip.", option_equipDaggers_equipDagger);if (choice_EQUIP_DAGGERS_DAGGER_weapon_id == null || choice_EQUIP_DAGGERS_DAGGER_weapon_id == "") {return} else {option_equipDaggers_equipDagger = choice_EQUIP_DAGGERS_DAGGER_weapon_id};dagger_selection.equip_dagger(option_equipDaggers_equipDagger); } },
@@ -72,5 +72,80 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML(`beforeEnd`,
 
 `</div>`);
 
-/* Button click */ for (let i = 0; i < dec3ptions_blueprint.length; i++) { $('#'+dec3ptions_blueprint[i].id).click(function() { dec3ptions_blueprint[i].function(); }); console.log(dec3ptions_blueprint[i]); };
-/* Load msg */ state.set("error", {h1: "DEC3PTIONS HUB - loaded successfully!",p: 'To toggle the button in the main menu, use Q.\nTo find the main menu button, go to the main menu and scroll down.',target: "main_menu"});
+var intervalIds = [];
+
+for (let i = 0; i < dec3ptions_blueprint.length; i++) {
+  $('#' + dec3ptions_blueprint[i].id).click(function() {
+
+
+
+    if(intervalIds.find(obj => obj.id === dec3ptions_blueprint[i].id)) {
+
+      var object = intervalIds.find(obj => obj.id === dec3ptions_blueprint[i].id);
+      clearInterval(object.intervalId);
+      console.log(intervalIds);
+      intervalIds.splice(object, 1);
+
+    } else {
+
+      if (document.getElementById(`toggle ${dec3ptions_blueprint[i].id}`).style.borderColor === "green") { return toggle.style.borderColor = "red" }
+
+      const btn_function = dec3ptions_blueprint[i].function();
+      var intervalId;
+      intervalId = setInterval(() => { dec3ptions_blueprint[i].repeat(btn_function); }, Number(dec3ptions_blueprint[i].timeout));
+      intervalIds.push({"id": dec3ptions_blueprint[i].id, "intervalId": intervalId});
+      console.log(intervalId)
+
+    };
+
+
+
+    var toggle = document.getElementById(`toggle ${dec3ptions_blueprint[i].id}`);
+    if (toggle.style.borderColor === "red") {
+      toggle.style.borderColor = "green";
+    } else {
+      toggle.style.borderColor = "red";
+    };
+
+
+
+  });
+};
+
+/*
+
+var intervalIds = [];
+
+for (let i = 0; i < dec3ptions_blueprint.length; i++) {
+  $('#' + dec3ptions_blueprint[i].id).click(function() {
+
+    if(intervalIds.find(obj => obj.id === dec3ptions_blueprint[i].id)) {
+
+      var objectIndex = intervalIds.findIndex(obj => obj.id === dec3ptions_blueprint[i].id);
+      clearInterval(intervalIds[objectIndex].intervalId);
+      intervalIds.splice(objectIndex, 1);
+
+    } else {
+
+      if ($('#toggle ' + dec3ptions_blueprint[i].id).style === btnStyle1) { return }
+
+      const btn_function = dec3ptions_blueprint[i].function();
+      var intervalId;
+      intervalId = setInterval(() => { dec3ptions_blueprint[i].repeat(btn_function); }, Number(dec3ptions_blueprint[i].timeout));
+      intervalIds.push({"id": dec3ptions_blueprint[i].id, "intervalId": intervalId});
+      console.log(intervalId);
+
+    };
+
+    // Toggle the button's border color
+    var toggle = $('#toggle ' + dec3ptions_blueprint[i].id);
+    
+    if (toggle.style === btnStyle0) {
+      toggle.style = btnStyle1;
+    } else {
+      toggle.style = btnStyle0;
+    };
+  });
+};
+
+*/
