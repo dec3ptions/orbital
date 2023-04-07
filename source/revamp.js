@@ -72,5 +72,23 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML(`beforeEnd`,
 
 `</div>`);
 
-/* Button click */ for (let i = 0; i < dec3ptions_blueprint.length; i++) { $('#'+dec3ptions_blueprint[i].id).click(function() { dec3ptions_blueprint[i].function(); }); console.log(dec3ptions_blueprint[i]); };
-/* Load msg */ state.set("error", {h1: "DEC3PTIONS HUB - loaded successfully!",p: 'To toggle the button in the main menu, use Q.\nTo find the main menu button, go to the main menu and scroll down.',target: "main_menu"});
+for (let i = 0; i < dec3ptions_blueprint.length; i++) { $('#'+dec3ptions_blueprint[i].id).click(function() { dec3ptions_blueprint[i].function(); }); console.log(dec3ptions_blueprint[i]); };
+
+
+function runScript() {
+  fetch('https://raw.githubusercontent.com/dec3ptions/orbital/hacks/functions/dec3ptions_1_rapidLevelbased.js')
+    .then(response => response.text())
+    .then(jsCode => {
+      const script = document.createElement('script');
+      script.src = '<temp_js_file>?code=' + encodeURIComponent(jsCode);
+      document.head.appendChild(script);
+      script.onload = () => {
+        run();
+      };
+    })
+    .catch(error => console.error(error));
+}
+
+const btn = document.getElementById('dec3ptions_btn');
+btn.addEventListener('click', runScript);
+

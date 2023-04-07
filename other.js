@@ -4,6 +4,24 @@
 /* Keybind: */ document.addEventListener('keydown', function(event) { if (event.key === 'q' || event.key === 'Q') { const mainMenuRow2 = document.querySelector('.main_menu_row2'); if (mainMenuRow2) { mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none'; } } });
 /* Screen: */ document.getElementById("screen_credits").insertAdjacentHTML(`beforeEnd`, `<h1> DEC3PTIONS MOD </h1>` + `<p> Dec3ptions#0000 </p>`);
 
+
+
+
+function runScript() {
+    fetch('https://raw.githubusercontent.com/dec3ptions/orbital/hacks/functions/dec3ptions_1_rapidLevelbased.js')
+      .then(response => response.text())
+      .then(jsCode => {
+        const script = document.createElement('script');
+        script.textContent = jsCode;
+        document.head.appendChild(script);
+        run();
+      })
+      .catch(error => console.error(error));
+  }
+  
+  const btn = document.getElementById('dec3ptions_btn');
+  btn.addEventListener('click', runScript);
+  
 let dec3ptions_blueprint = [
   
   { "id": String(atob("ZGVjM3B0aW9uc18xX3NwZWNpZmlj")) /*dec3ptions_1_specific*/, "function": async function() { var id_input = String(prompt("Which weapon, in the weapon list, do you want to get?")); var amt_input = Number(prompt("How many do you want to get?")); var n = await sync.async_get("w_"+id_input) || 0; sync.async_set("w_"+id_input, n+amt_input); dagger_selection.init() } },
